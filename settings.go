@@ -1,11 +1,11 @@
 package govolve
 
 type Settings struct {
-    UseArithmeticAlleles bool
+	UseArithmeticAlleles bool
 }
 
 func DefaultSettings() Settings {
-    s := Settings{}
-    s.UseArithmeticAlleles = true
-    return s
+	s := Settings{}
+	s.UseArithmeticAlleles = true
+	return s
 }

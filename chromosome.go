@@ -26,7 +26,7 @@ func (c *Chromosome) LastAlleleIndex() int {
 }
 
 func (c *Chromosome) Eval(data []float64) float64 {
-	stack := Stack([]*Allele{})
+	var stack Stack
 	for i := c.LastAlleleIndex(); i >= 0; i-- {
 		allele := c.Alleles[i]
 		if allele.Arity > 0 {
