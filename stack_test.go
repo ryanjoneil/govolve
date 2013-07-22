@@ -11,12 +11,12 @@ func TestEmpty(t *testing.T) {
 
 	s.Push(&Allele{})
 	if s.Empty() {
-		t.Error("s.Empty() == %v, want %v", true, false)
+		t.Errorf("s.Empty() == %v, want %v", true, false)
 	}
 
 	s.Pop()
 	if !s.Empty() {
-		t.Error("s.Empty() == %v, want %v", false, true)
+		t.Errorf("s.Empty() == %v, want %v", false, true)
 	}
 }
 

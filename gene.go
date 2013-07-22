@@ -1,20 +1,20 @@
 package govolve
 
-// A Chromosome is a series of Alleles that can be evaluated against a given data array.
+// A Gene is a series of Alleles that can be evaluated against a given data array.
 // It contains a Head, which consists of both Operators and Indexes, and a Tail, which
 // is merely Indexes. This is so, if the Head contains only Operators of maximum Arity,
-// the Tail will always have enough data leftover to make the Chromosome syntactically
-// valid. Note this does not imply it is semantically valid. Chromosomes are evaluated
+// the Tail will always have enough data leftover to make the Gene syntactically
+// valid. Note this does not imply it is semantically valid. Genes are evaluated
 // using prefix notation: +-a+bcd = (+ (- a (+ b c)) d) = (a - (b + c)) + d.
-type Chromosome struct {
+type Gene struct {
 	//Id      int
 	Alleles []*Allele
 	//Head    []Allele
 }
 
-// Finds the last index that is part of a chromosome's phenotype. This is necessary
-// to evaluate the chromosome, since all of its alleles may not be used.
-func (c *Chromosome) LastAlleleIndex() int {
+// Finds the last index that is part of a Gene's phenotype. This is necessary
+// to evaluate the Gene, since all of its alleles may not be used.
+func (c *Gene) LastAlleleIndex() int {
 	arity := 1
 	for i, a := range c.Alleles {
 		arity += a.Arity - 1
@@ -25,7 +25,7 @@ func (c *Chromosome) LastAlleleIndex() int {
 	return len(c.Alleles) - 1
 }
 
-func (c *Chromosome) Eval(data []float64) float64 {
+func (c *Gene) Eval(data []float64) float64 {
 	var stack Stack
 	for i := c.LastAlleleIndex(); i >= 0; i-- {
 		allele := c.Alleles[i]
@@ -40,4 +40,4 @@ func (c *Chromosome) Eval(data []float64) float64 {
 	return stack.Pop().Op(data, &stack)
 }
 
-// TODO: func RandomChromosome(headLength int, tailLength int, )
+// TODO: func RandomGene(headLength int, tailLength int, )

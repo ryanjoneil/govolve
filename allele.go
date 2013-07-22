@@ -1,5 +1,7 @@
 package govolve
 
+import "math"
+
 // Operators have access to the data they are operating on as
 // well as the Allele Stack for evaluation of chromosomes.
 type Operator func([]float64, *Stack) float64
@@ -25,6 +27,7 @@ var ArithmeticAlleles = []*Allele{
 	&Allele{"~", 1, func(d []float64, s *Stack) float64 { return -s.Pop().Op(d, s) }},
 	&Allele{"*", 2, func(d []float64, s *Stack) float64 { return s.Pop().Op(d, s) * s.Pop().Op(d, s) }},
 	&Allele{"/", 2, func(d []float64, s *Stack) float64 { return s.Pop().Op(d, s) / s.Pop().Op(d, s) }},
+	&Allele{"^", 2, func(d []float64, s *Stack) float64 { return math.Pow(s.Pop().Op(d, s), s.Pop().Op(d, s)) }},
 }
 
 // TODO: 1/0, etc

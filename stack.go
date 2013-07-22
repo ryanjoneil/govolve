@@ -10,12 +10,14 @@ func (s *Stack) Push(a *Allele) {
 func (s *Stack) Pop() *Allele {
 	var a *Allele
 	l := len(*s)
+
 	if l > 0 {
 		a = (*s)[l-1]
 		*s = (*s)[:l-1]
 	} else {
 		a = nil
 	}
+
 	return a
 }
 

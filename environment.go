@@ -1,3 +1,11 @@
+/*
+Package govolve implements linear genetic programming for use against
+floating point data sets. A simple example may look like:
+
+	settings := govolve.DefaultSettings()
+	env := govolve.Environment(settings, 5)
+	// TODO FINISH
+*/
 package govolve
 
 import "fmt"
