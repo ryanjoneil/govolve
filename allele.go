@@ -16,19 +16,19 @@ type Allele struct {
 }
 
 var (
-	OperatorAdd = func(d []float64, s *Stack) float64 { return s.Pop().Op(d, s) + s.Pop().Op(d, s) }
+	OperatorAdd      = func(d []float64, s *Stack) float64 { return s.Pop().Op(d, s) + s.Pop().Op(d, s) }
 	OperatorSubtract = func(d []float64, s *Stack) float64 { return s.Pop().Op(d, s) - s.Pop().Op(d, s) }
-	OperatorNegate = func(d []float64, s *Stack) float64 { return -s.Pop().Op(d, s) }
+	OperatorNegate   = func(d []float64, s *Stack) float64 { return -s.Pop().Op(d, s) }
 	OperatorMultiply = func(d []float64, s *Stack) float64 { return s.Pop().Op(d, s) * s.Pop().Op(d, s) }
-	OperatorDivide = func(d []float64, s *Stack) float64 { return s.Pop().Op(d, s) / s.Pop().Op(d, s) }
-	OperatorPower = func(d []float64, s *Stack) float64 { return math.Pow(s.Pop().Op(d, s), s.Pop().Op(d, s)) }
+	OperatorDivide   = func(d []float64, s *Stack) float64 { return s.Pop().Op(d, s) / s.Pop().Op(d, s) }
+	OperatorPower    = func(d []float64, s *Stack) float64 { return math.Pow(s.Pop().Op(d, s), s.Pop().Op(d, s)) }
 
-	AlleleAdd = &Allele{"+", 2, OperatorAdd}
+	AlleleAdd      = &Allele{"+", 2, OperatorAdd}
 	AlleleSubtract = &Allele{"-", 2, OperatorSubtract}
-	AlleleNegate = &Allele{"~", 1, OperatorNegate}
+	AlleleNegate   = &Allele{"~", 1, OperatorNegate}
 	AlleleMultiply = &Allele{"*", 2, OperatorMultiply}
-	AlleleDivide = &Allele{"/", 2, OperatorDivide}
-	AllelePower = &Allele{"^", 2, OperatorPower}
+	AlleleDivide   = &Allele{"/", 2, OperatorDivide}
+	AllelePower    = &Allele{"^", 2, OperatorPower}
 
 	ArithmeticAlleles = []*Allele{
 		AlleleAdd,

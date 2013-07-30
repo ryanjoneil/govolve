@@ -13,29 +13,29 @@ func TestOrder(t *testing.T) {
 	var result float64
 	d := []float64{}
 	s := &Stack{}
-	
+
 	// b - a
 	s.Push(a)
 	s.Push(b)
 	result = AlleleSubtract.Op(d, s)
-	if result != (b.Op(d,s) - a.Op(d,s)) {
-		t.Errorf("b-a == %v, want %v", result, b.Op(d,s) - a.Op(d,s))
+	if result != (b.Op(d, s) - a.Op(d, s)) {
+		t.Errorf("b-a == %v, want %v", result, b.Op(d, s)-a.Op(d, s))
 	}
 
 	// a / b
 	s.Push(b)
 	s.Push(a)
 	result = AlleleDivide.Op(d, s)
-	if result != (a.Op(d,s) / b.Op(d,s)) {
-		t.Errorf("a/b == %v, want %v", result, a.Op(d,s) / b.Op(d,s))
+	if result != (a.Op(d, s) / b.Op(d, s)) {
+		t.Errorf("a/b == %v, want %v", result, a.Op(d, s)/b.Op(d, s))
 	}
 
 	// a ^ b
 	s.Push(b)
 	s.Push(a)
 	result = AllelePower.Op(d, s)
-	if result != math.Pow(a.Op(d,s), b.Op(d,s)) {
-		t.Errorf("a^b == %v, want %v", result, math.Pow(a.Op(d,s), b.Op(d,s)))
+	if result != math.Pow(a.Op(d, s), b.Op(d, s)) {
+		t.Errorf("a^b == %v, want %v", result, math.Pow(a.Op(d, s), b.Op(d, s)))
 	}
 }
 
@@ -48,7 +48,7 @@ func TestZeroDivision(t *testing.T) {
 	var result float64
 	d := []float64{}
 	s := &Stack{}
-	
+
 	// a / 0
 	s.Push(z)
 	s.Push(a)

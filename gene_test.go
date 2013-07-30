@@ -22,7 +22,7 @@ func TestGeneEval(t *testing.T) {
 	// Test evaluation of the gene.
 	data := []float64{1, 2, 3, 4}
 	v1 := gene.Eval(data)
-	v2 := 3.0 - (4.0+(-1.0)) + (2.0-4.0)
+	v2 := 3.0 - (4.0 + (-1.0)) + (2.0 - 4.0)
 	if v1 != v2 {
 		t.Errorf("gene.Eval(%v) == %v, want %v", data, v1, v2)
 	}

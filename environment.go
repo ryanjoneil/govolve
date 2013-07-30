@@ -15,6 +15,12 @@ type Environment struct {
 	Indexes   []*Allele // Just the data indexes (for building chromosome tails)
 }
 
+// NOTE: tail length = max arity + (max arity - 1) * (head length - 1)
+// TODO: change to take headLength instead of dataLength
+func NewDefaultEnvironment(dataLength int) *Environment {
+	return NewEnvironment(DefaultSettings(), dataLength)
+}
+
 func NewEnvironment(settings Settings, dataLength int) *Environment {
 	total := dataLength
 	if settings.UseArithmeticAlleles {

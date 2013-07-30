@@ -1,7 +1,10 @@
 package govolve
 
 type Settings struct {
-	UseArithmeticAlleles bool
+	UseArithmeticAlleles   bool
+	UseTrigonometryAlleles bool
+	UseLogarithmicAlleles  bool
+	UseLogicalAlleles      bool
 }
 
 func DefaultSettings() Settings {
