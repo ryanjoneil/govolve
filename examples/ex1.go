@@ -1,12 +1,13 @@
-package govolve
+package main
 
 import (
-//"fmt"
+	"fmt"
+	"github.com/ryanjoneil/govolve"
 )
 
 func main() {
 
-	/*c := &Chromosome{[]*Allele{ // +-a+bcd
+	c := &Chromosome{[]*Allele{ // +-a+bcd
 		Operators[0], // +
 		Operators[1], // -
 		Operators[5], // a
@@ -20,5 +21,5 @@ func main() {
 		Operators[8], // d
 		Operators[8], // d
 	}}
-	fmt.Println(c.Eval(data))*/
+	fmt.Println(c.Eval(data))
 }
